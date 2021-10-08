@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -35,32 +37,30 @@ class GoldDataDisplayScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Obx(
-          () {
-            if (goldDataController.loading.value) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-
-            return ListView.builder(
-              itemCount: goldDataController.data.length,
-              itemBuilder: (context, index) {
-                var date =
-                    "${goldDataController.data[index]['year']}-${goldDataController.data[index]['month']}-${goldDataController.data[index]['day']}";
-
-                return Card(
-                  color: Colors.grey.withOpacity(0.1),
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Text(date),
-                  ),
-                );
-              },
+      body: Obx(
+        () {
+          if (goldDataController.loading.value) {
+            return const Center(
+              child: CircularProgressIndicator(),
             );
-          },
-        ),
+          }
+
+          return ListView.builder(
+            itemCount: goldDataController.data.length,
+            itemBuilder: (context, index) {
+              var date =
+                  "${goldDataController.data[index]['year']}-${goldDataController.data[index]['month']}-${goldDataController.data[index]['day']}";
+
+              return Card(
+                color: Colors.grey.withOpacity(0.1),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Text(date),
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }
