@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:test_mygetx/screens/GoldDataDisplayScreen.dart';
 
-import './screens/NewsDataDisplayScreen.dart';
+//import './screens/NewsDataDisplayScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: NewsDataDisplayScreen(),
+      home: GoldDataDisplayScreen(),
     );
   }
 }

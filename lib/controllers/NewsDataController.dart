@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class NewsDataController extends GetxController {
+class NewsDataCoxxntroller extends GetxController {
   List data = [].obs;
 
   RxBool loading = false.obs;
